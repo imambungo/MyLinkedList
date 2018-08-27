@@ -36,7 +36,7 @@ public class MyLinkedList{
             this.firstTampilkan = true;
         } else {
             if (diUjung()) {
-                System.out.print(this.isiInt+"]");
+                System.out.println(this.isiInt+"]");
             } else {
                 System.out.print(this.isiInt+",");
                 next.tampilkan();
