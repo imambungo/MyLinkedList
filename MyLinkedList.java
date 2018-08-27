@@ -1,13 +1,23 @@
 class MyLinkedList{
-    private int index;
+    private int index=0;
     private int maxIndex;
-    private int isiInt=0;
-    public MyLinkedList(int isiInt){
-        
+    private int isiInt;
+    MyLinkedList next;
+    public MyLinkedList(int isiInt, int index) {
+        this.isiInt = isiInt;
+        this.index = ++index;
     }
-    public void add(int ygDitambah){
-        if(diUjung()){
-            MyLinkedList next = new MyLinkedList(int isiInt);
+    public boolean diUjung(){
+        if (index == maxIndex) {
+            return true;
+        }
+        return false;
+    }
+    public void add(int ygDitambah) {
+        if (diUjung()) {
+            next = new MyLinkedList(ygDitambah, this.index);
+        }else{
+            next.add(ygDitambah);
         }
     }
 }
