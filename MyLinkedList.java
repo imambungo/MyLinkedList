@@ -20,8 +20,8 @@ class MyLinkedList{
             this.isiInt = ygDitambah;
             this.first = true;
         }else{
+            this.maxIndex++;
             if (diUjung()) {
-                this.maxIndex++;
                 next = new MyLinkedList(ygDitambah, this.index);
             } else {
                 next.add(ygDitambah);
