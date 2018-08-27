@@ -5,6 +5,7 @@ public class MyLinkedList{
     private boolean firstAdd = false;
     private boolean firstTampilkan = false;
     MyLinkedList next;
+    public MyLinkedList(){}
     public MyLinkedList(int isiInt, int index) {
         this.isiInt = isiInt;
         this.index = ++index;
