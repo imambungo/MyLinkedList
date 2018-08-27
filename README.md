@@ -2,6 +2,7 @@
 
 Coba-coba bikin LinkedList sendiri.  
 Fitur:  
--tambah elemen  
+-tambah elemen (done)  
+-tampilkan elemen (done)  
 -sisipkan elemen  
 -hapus elemen
