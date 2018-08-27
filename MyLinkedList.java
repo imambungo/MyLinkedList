@@ -22,12 +22,12 @@ public class MyLinkedList{
             this.isiInt = ygDitambah;
             this.firstAdd = true;
         }else{
-            this.maxIndex++;
             if (diUjung()) {
                 next = new MyLinkedList(ygDitambah, this.index);
             } else {
                 next.add(ygDitambah);
             }
+            this.maxIndex++;
         }
     }
     public void tampilkan() {
