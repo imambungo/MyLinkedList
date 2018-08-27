@@ -1,11 +1,13 @@
 class MyLinkedList{
     private int index=0;
-    private int maxIndex;
+    private int maxIndex=0;
     private int isiInt;
+    private boolean first = false;
     MyLinkedList next;
     public MyLinkedList(int isiInt, int index) {
         this.isiInt = isiInt;
         this.index = ++index;
+        this.maxIndex = this.index;
     }
     public boolean diUjung(){
         if (index == maxIndex) {
@@ -14,10 +16,16 @@ class MyLinkedList{
         return false;
     }
     public void add(int ygDitambah) {
-        if (diUjung()) {
-            next = new MyLinkedList(ygDitambah, this.index);
+        if (this.maxIndex == 0 && this.first == false) {
+            this.isiInt = ygDitambah;
+            this.first = true;
         }else{
-            next.add(ygDitambah);
+            if (diUjung()) {
+                this.maxIndex++;
+                next = new MyLinkedList(ygDitambah, this.index);
+            } else {
+                next.add(ygDitambah);
+            }
         }
     }
 }
