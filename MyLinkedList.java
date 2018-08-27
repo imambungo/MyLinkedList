@@ -3,7 +3,6 @@ public class MyLinkedList{
     private int maxIndex=0;
     private int isiInt;
     private boolean firstAdd = false;
-    private boolean firstTampilkan = false;
     MyLinkedList next;
     public MyLinkedList(){}
     public MyLinkedList(int isiInt, int index) {
@@ -31,9 +30,9 @@ public class MyLinkedList{
         }
     }
     public void tampilkan() {
-        if (this.maxIndex == 0 && this.firstTampilkan == false) {
+        if (this.index == 0) {
             System.out.print("["+this.isiInt+",");
-            this.firstTampilkan = true;
+            next.tampilkan();
         } else {
             if (diUjung()) {
                 System.out.println(this.isiInt+"]");
