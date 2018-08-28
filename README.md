@@ -2,9 +2,10 @@
 
 Coba-coba bikin LinkedList sendiri.  
 Fitur:  
--tambah elemen (done)  
--tampilkan elemen (done)  
--get elemen pada index ke-i (done)
--fungsi untuk mendapatkan banyaknya elemen (done)  
+-tambah elemen (di ujung) : DONE  
 -sisipkan elemen  
--hapus elemen
+-hapus elemen (di ujung) : DONE  
+-hapus elemen (bebas)  
+-tampilkan elemen : DONE  
+-get elemen pada index ke-i : DONE  
+-fungsi untuk mendapatkan banyaknya elemen : DONE

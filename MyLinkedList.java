@@ -1,5 +1,4 @@
-public class MyLinkedList{
-    // Berperan sebagai Head
+public class MyLinkedList{// Berperan sebagai Head
     private Node next;
     
     public void add(int ygDitambah) {
@@ -37,11 +36,19 @@ public class MyLinkedList{
         }
         return next.length();
     }
+
+    public void pop() {
+        if (next != null)
+            if (next.next == null)
+                next = null;
+            else
+                next.pop();
+    }
 }
 class Node{
     private int index;
     private int isiInt;
-    private Node next;
+    protected Node next;
 
     public Node(int isiInt, int index) {
         this.isiInt = isiInt;
@@ -83,5 +90,12 @@ class Node{
             return 1;
         }
         return 1 + next.length();
+    }
+
+    public void pop() {
+        if (next.next == null)
+            next = null;
+        else
+            next.pop();
     }
 }
