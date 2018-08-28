@@ -12,5 +12,8 @@ class TestLinkedList{
         a.add(5);
         a.add(4);
         a.tampilkan();
+        // System.out.println(a.index(0));
+        // System.out.println(a.index(3));
+        // System.out.println(a.index(a.length()));
     }
 }
