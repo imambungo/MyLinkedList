@@ -11,7 +11,7 @@ public class MyLinkedList{
         this.maxIndex = this.index;
     }
     public boolean diUjung() {
-        if (index == maxIndex) {
+        if (this.next == null) {
             return true;
         }
         return false;

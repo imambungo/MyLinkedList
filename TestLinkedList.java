@@ -1,9 +1,9 @@
 class TestLinkedList{
     public static void main(String[] args) {
         MyLinkedList a = new MyLinkedList();
-        a.add(9);
-        a.add(8);
-        a.add(7);
+        for (int i = 0; i < 10; i++) {
+            a.add(i);
+        }
         a.tampilkan();
         a.add(6);
         a.add(5);
