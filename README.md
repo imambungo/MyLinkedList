@@ -4,7 +4,7 @@ Coba-coba bikin LinkedList sendiri.
 Fitur:  
 -tambah elemen (done)  
 -tampilkan elemen (done)  
--tampilkan elemen pada index ke-i  
--fungsi untuk mendapatkan banyaknya elemen  
+-get elemen pada index ke-i (done)
+-fungsi untuk mendapatkan banyaknya elemen (done)  
 -sisipkan elemen  
 -hapus elemen
