@@ -24,8 +24,6 @@ class Node{
     private int isiInt;
     private Node next;
 
-    public Node(){}
-
     public Node(int isiInt, int index) {
         this.isiInt = isiInt;
         this.index = ++index;
