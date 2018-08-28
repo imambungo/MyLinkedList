@@ -1,32 +1,28 @@
 public class MyLinkedList{
-    Node next;
+    // Berperan sebagai Head
+    private Node next;
     
     public void add(int ygDitambah) {
         if (this.next == null) {
-            next = new Node(ygDitambah, 0);
+            next = new Node(ygDitambah, -1);
         } else {
             next.add(ygDitambah);
         }
     }
     
     public void tampilkan() {
-        // if (this.index == 0) {
-        //     System.out.print("[" + this.isiInt + ",");
-        //     next.tampilkan();
-        // } else {
             if (this.next == null) {
                 System.out.println("LinkedList ini kosong gan");
             } else {
                 System.out.print("[");
                 next.tampilkan();
             }
-        // }
     }
 }
 class Node{
     private int index;
     private int isiInt;
-    Node next;
+    private Node next;
 
     public Node(){}
 
@@ -44,16 +40,11 @@ class Node{
     }
 
     public void tampilkan() {
-        if (this.index == 0) {
-            System.out.print("[" + this.isiInt + ",");
-            next.tampilkan();
+        if (this.next == null) {
+            System.out.println(this.isiInt + "]");
         } else {
-            if (this.next == null) {
-                System.out.println(this.isiInt + "]");
-            } else {
-                System.out.print(this.isiInt + ",");
-                next.tampilkan();
-            }
+            System.out.print(this.isiInt + ",");
+            next.tampilkan();
         }
     }
 }
