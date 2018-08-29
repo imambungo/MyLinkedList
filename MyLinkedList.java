@@ -11,7 +11,7 @@ public class MyLinkedList{// Berperan sebagai Head
     
     public void tampilkan() {
         if (this.next == null) {
-            System.out.println("LinkedList ini kosong gan");
+            System.out.println("[]");
         } else {
             System.out.print("[");
             next.tampilkan();
@@ -20,12 +20,12 @@ public class MyLinkedList{// Berperan sebagai Head
 
     public int index(int indexPermintaan) {
         if (this.next == null || indexPermintaan < 0) {
-            try {
-                throw new IndexOutOfBoundsException("Index out of bound gan :v");
-            }
-            catch (IndexOutOfBoundsException e) {
-                // System.out.println(e.getMessage());                
-            }
+            System.out.println("Error: Index out of bound gan :v");
+            if (this.next == null)
+                System.out.println("\t.hapus(" + indexPermintaan + ") -> LinkedList is empty");
+            if (indexPermintaan < 0)
+                System.out.println("\t.hapus(" + indexPermintaan + ") -> Minimum index is 0");
+            System.exit(0);
         }
         return next.index(indexPermintaan, 0);
     }
@@ -43,6 +43,24 @@ public class MyLinkedList{// Berperan sebagai Head
                 next = null;
             else
                 next.pop();
+    }
+
+    public void hapus(int indexPermintaan) {
+        if (this.next == null || indexPermintaan < 0) {
+            System.out.println("Error: Index out of bound gan :v");
+            if (this.next == null)
+                System.out.println("\t.hapus(" + indexPermintaan + ") -> LinkedList is empty");
+            if (indexPermintaan < 0)
+                System.out.println("\t.hapus(" + indexPermintaan + ") -> Minimum index is 0");
+            System.exit(0);
+        } else if (indexPermintaan == 0) {
+            if (next.next == null)
+                this.next = null;
+            else
+                this.next = next.next;
+        } else {
+            next.hapus(indexPermintaan, 1);
+        }
     }
 }
 class Node{
@@ -74,11 +92,9 @@ class Node{
         if(indexPermintaan == indexIni) {
             return this.isiInt;
         }else if (this.next == null) {
-            try {
-                throw new IndexOutOfBoundsException("Index out of bound gan :v");
-            } catch (IndexOutOfBoundsException e) {
-                System.out.println(e.getMessage());
-            }
+            System.out.println("Error: Index out of bound gan :v");
+            System.out.println("\t.index(" + indexPermintaan + ") -> last index: " + indexIni);
+            System.exit(0);
         }
         return next.index(indexPermintaan, ++indexIni);
     }
@@ -95,5 +111,20 @@ class Node{
             next = null;
         else
             next.pop();
+    }
+
+    public void hapus(int indexPermintaan, int indexNext) {
+        if (next.next == null && indexPermintaan > indexNext) {
+            System.out.println("Error: Index out of bound gan :v");
+            System.out.println("\t.hapus("+indexPermintaan+") -> last index: "+indexNext);
+            System.exit(0);
+        } else if (indexPermintaan == indexNext) {
+            if (next.next == null)
+                this.next = null;
+            else
+                this.next = next.next;
+        } else {
+            next.hapus(indexPermintaan, ++indexNext);
+        }
     }
 }

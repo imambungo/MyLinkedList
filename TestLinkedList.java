@@ -9,15 +9,16 @@ class TestLinkedList{
         }
         a.tampilkan();
         a.add(6);
-        a.add(5);
         a.tampilkan();
         a.pop();
-        a.pop();
         a.tampilkan();
-        System.out.println(a.index(0));
-        System.out.println(a.index(3));
-        // System.out.println(a.index(-1));
-        // System.out.println(a.index(100));
+        a.hapus(5);
+        a.tampilkan();
+        a.hapus(a.length()-1);
+        // a.hapus(a.length());
+        a.tampilkan();
+        // System.out.println(a.index(90));
+        // System.out.println(a.index(-3));
         System.out.println(a.index(a.length()-1));
     }
 }
