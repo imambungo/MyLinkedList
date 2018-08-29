@@ -17,9 +17,12 @@ class TestLinkedList{
         a.hapus(a.size()-1);
         // a.hapus(a.size());
         a.tampilkan();
+        a.add(8,123);
+        a.tampilkan();
+        a.add(8,124);
+        a.tampilkan();
         // System.out.println(a.index(90));
         // System.out.println(a.index(-3));
         System.out.println(a.index(a.size()-1));
-        // a.sisipkan(4,200);
     }
 }

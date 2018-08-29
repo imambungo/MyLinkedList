@@ -5,7 +5,7 @@ Membuat LinkedList sendiri.
 ## Fitur
 
 - tambah elemen (di ujung) : DONE  
-- sisipkan elemen : ON PROGRESS  
+- sisipkan elemen : DONE  
 - hapus elemen (di ujung) : DONE  
 - hapus elemen (bebas) : DONE  
 - tampilkan elemen : DONE  

@@ -9,6 +9,23 @@ public class MyLinkedList{// Berperan sebagai Head
         }
         return true;
     }
+
+    public void add(int indexPermintaan, int ygDitambah) {
+        if (this.next == null || indexPermintaan < 0) {
+            System.out.println("Error: Index out of bound gan :v");
+            if (this.next == null)
+                System.out.println("\t.hapus(" + indexPermintaan + ") -> LinkedList is empty");
+            if (indexPermintaan < 0)
+                System.out.println("\t.hapus(" + indexPermintaan + ") -> Minimum index is 0");
+            System.exit(0);
+        } else if (indexPermintaan == 0) {
+            Node sisip = new Node(ygDitambah);
+            sisip.next = this.next;
+            this.next = sisip;
+        } else {
+            next.add(indexPermintaan, ygDitambah, 1);
+        }
+    }
     
     public void tampilkan() {
         if (this.next == null) {
@@ -79,6 +96,20 @@ class Node{
             next.add(ygDitambah);
         }
         return true;
+    }
+
+    public void add(int indexPermintaan, int ygDitambah, int indexNext) {
+        if (next.next == null && indexPermintaan > indexNext) {
+            System.out.println("Error: Index out of bound gan :v");
+            System.out.println("\t.hapus(" + indexPermintaan + ") -> last index: " + indexNext);
+            System.exit(0);
+        } else if (indexPermintaan == indexNext) {
+            Node sisip = new Node(ygDitambah);
+            sisip.next = this.next;
+            this.next = sisip;
+        } else {
+            next.add(indexPermintaan, ygDitambah, ++indexNext);
+        }
     }
 
     public void tampilkan() {
