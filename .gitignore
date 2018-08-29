@@ -25,5 +25,5 @@ hs_err_pid*
 # Ulah zsh ¯\_(ツ)_/¯
 preexec.sh
 
+# vscode debugger config
 *.vscode
-launch.json

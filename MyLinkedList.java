@@ -3,7 +3,7 @@ public class MyLinkedList{// Berperan sebagai Head
     
     public void add(int ygDitambah) {
         if (this.next == null) {
-            next = new Node(ygDitambah, -1);
+            next = new Node(ygDitambah);
         } else {
             next.add(ygDitambah);
         }
@@ -18,16 +18,16 @@ public class MyLinkedList{// Berperan sebagai Head
         }
     }
 
-    public int index(int index) {
-        if (this.next == null || index < 0) {
+    public int index(int indexPermintaan) {
+        if (this.next == null || indexPermintaan < 0) {
             try {
-                throw new IndexOutOfBoundsException("Index ini tidak ada gan :v");
+                throw new IndexOutOfBoundsException("Index out of bound gan :v");
             }
             catch (IndexOutOfBoundsException e) {
                 // System.out.println(e.getMessage());                
             }
         }
-        return next.index(index);
+        return next.index(indexPermintaan, 0);
     }
 
     public int length() {
@@ -46,18 +46,16 @@ public class MyLinkedList{// Berperan sebagai Head
     }
 }
 class Node{
-    private int index;
     private int isiInt;
     protected Node next;
 
-    public Node(int isiInt, int index) {
+    public Node(int isiInt) {
         this.isiInt = isiInt;
-        this.index = ++index;
     }
 
     public void add(int ygDitambah) {
         if (this.next == null) {
-            next = new Node(ygDitambah, this.index);
+            next = new Node(ygDitambah);
         } else {
             next.add(ygDitambah);
         }
@@ -72,17 +70,17 @@ class Node{
         }
     }
 
-    public int index(int index) {
-        if(this.index == index) {
+    public int index(int indexPermintaan, int indexIni) {
+        if(indexPermintaan == indexIni) {
             return this.isiInt;
         }else if (this.next == null) {
             try {
-                throw new IndexOutOfBoundsException("Index ini tidak ada gan :v");
+                throw new IndexOutOfBoundsException("Index out of bound gan :v");
             } catch (IndexOutOfBoundsException e) {
                 System.out.println(e.getMessage());
             }
         }
-        return next.index(index);
+        return next.index(indexPermintaan, ++indexIni);
     }
 
     public int length() {
