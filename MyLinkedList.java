@@ -1,12 +1,13 @@
 public class MyLinkedList{// Berperan sebagai Head
     private Node next;
     
-    public void add(int ygDitambah) {
+    public boolean add(int ygDitambah) {
         if (this.next == null) {
             next = new Node(ygDitambah);
         } else {
             next.add(ygDitambah);
         }
+        return true;
     }
     
     public void tampilkan() {
@@ -30,11 +31,11 @@ public class MyLinkedList{// Berperan sebagai Head
         return next.index(indexPermintaan, 0);
     }
 
-    public int length() {
+    public int size() {
         if (next == null) {
             return 0;
         }
-        return next.length();
+        return next.size();
     }
 
     public void pop() {
@@ -71,12 +72,13 @@ class Node{
         this.isiInt = isiInt;
     }
 
-    public void add(int ygDitambah) {
+    public boolean add(int ygDitambah) {
         if (this.next == null) {
             next = new Node(ygDitambah);
         } else {
             next.add(ygDitambah);
         }
+        return true;
     }
 
     public void tampilkan() {
@@ -99,11 +101,11 @@ class Node{
         return next.index(indexPermintaan, ++indexIni);
     }
 
-    public int length() {
+    public int size() {
         if (next == null) {
             return 1;
         }
-        return 1 + next.length();
+        return 1 + next.size();
     }
 
     public void pop() {

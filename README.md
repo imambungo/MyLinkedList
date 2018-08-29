@@ -1,9 +1,9 @@
 # Belajar Struktur Data
 
-Coba-coba bikin LinkedList sendiri.  
-Update: Sekarang jadi tugas kuliah.
+Membuat LinkedList sendiri.
 
-### Fitur:  
+## Fitur
+
 - tambah elemen (di ujung) : DONE  
 - sisipkan elemen : ON PROGRESS  
 - hapus elemen (di ujung) : DONE  

@@ -14,11 +14,12 @@ class TestLinkedList{
         a.tampilkan();
         a.hapus(5);
         a.tampilkan();
-        a.hapus(a.length()-1);
-        // a.hapus(a.length());
+        a.hapus(a.size()-1);
+        // a.hapus(a.size());
         a.tampilkan();
         // System.out.println(a.index(90));
         // System.out.println(a.index(-3));
-        System.out.println(a.index(a.length()-1));
+        System.out.println(a.index(a.size()-1));
+        // a.sisipkan(4,200);
     }
 }
