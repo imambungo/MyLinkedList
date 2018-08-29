@@ -56,11 +56,17 @@ public class MyLinkedList{// Berperan sebagai Head
     }
 
     public void pop() {
+        if (next != null){
+            if (next.next == null) {
+                next = null;
+            } else {
         Node pointer = next;
         while (pointer.next.next != null) {
             pointer = pointer.next;
         }
         pointer.next = null;
+    }
+        }
     }
 
     public void hapus(int indexPermintaan) {
