@@ -55,18 +55,26 @@ public class MyLinkedList{// Berperan sebagai Head
         return next.size();
     }
 
-    public void pop() {
+    public void popBaru() {
         if (next != null){
             if (next.next == null) {
                 next = null;
             } else {
-        Node pointer = next;
-        while (pointer.next.next != null) {
-            pointer = pointer.next;
+                Node pointer = next;
+                while (pointer.next.next != null) {
+                    pointer = pointer.next;
+                }
+                pointer.next = null;
+            }
         }
-        pointer.next = null;
     }
-        }
+
+    public void popLama() {
+        if (next != null)
+            if (next.next == null)
+                next = null;
+            else
+                next.popLama();
     }
 
     public void hapus(int indexPermintaan) {
@@ -90,6 +98,13 @@ public class MyLinkedList{// Berperan sebagai Head
 class Node{
     private int isiInt;
     protected Node next;
+
+    public void popLama() {
+        if (next.next == null)
+            next = null;
+        else
+            next.popLama();
+    }
 
     public Node(int isiInt) {
         this.isiInt = isiInt;
