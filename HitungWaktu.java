@@ -37,8 +37,8 @@ public class HitungWaktu{
     }
     public void runTimeM() {
         if (this.namaProgram == null)
-            System.out.println("runTime   : " + runTime + "ms");
+            System.out.println("runTime\t\t: " + runTime + " ms");
         else
-            System.out.println(this.namaProgram + " runTime   : " + runTime + "ms");
+            System.out.println(this.namaProgram + "\nrunTime\t\t: " + runTime + " ms\n");
     }
 }
