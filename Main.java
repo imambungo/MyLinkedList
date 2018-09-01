@@ -1,6 +1,32 @@
 class Main{
     public static void main(String[] args) {
-        MyLinkedList a = new MyLinkedList();
+
+        HitungWaktu List = new HitungWaktu();
+        HitungWaktu Arr = new HitungWaktu();
+        int banyakIndex = 100000;
+
+        
+        MyLinkedList li = new MyLinkedList();
+        List.startTimeM();
+        for (int i = 0; i < banyakIndex; i++) {
+            li.add(i);
+        }
+        li.tampilkan();
+        List.endTimeM();
+
+        int[] arr = new int[banyakIndex];
+        Arr.startTimeM();
+        for (int i = 0; i < banyakIndex; i++) {
+            arr[i] = i;
+        }
+        for (int i = 0; i < banyakIndex; i++) {
+            System.out.println(arr[i]);
+        }
+        Arr.endTimeM();
+        Arr.runTimeM();
+        List.runTimeM();
+
+
         // MyLinkedList b = new MyLinkedList();
         // a.tampilkan();
         // a.add(100);
@@ -41,33 +67,7 @@ class Main{
         // System.out.println(a.index(a.size()-1));
 
         // --------------------------------
-        HitungWaktu A = new HitungWaktu();
-        // HitungWaktu B = new HitungWaktu();
-        // MyLinkedList a = new MyLinkedList();
-        // MyLinkedList b = new MyLinkedList();
-        // HitungWaktu.startTimeM();
-        // for (int i = 0; i < 100000; i++) {
-        //     a.add(i);
-        // }
-        // a.tampilkan();
-        // HitungWaktu.endTimeM();
-        // HitungWaktu.runTimeM();
-
-
-        // int[] arr = new int[100000];
-        // HitungWaktu.startTimeM();
-        // for (int i = 0; i < 100000; i++) {
-        //     arr[i] = i;
-        // }
-        // for (int i = 0; i < 100000; i++) {
-        //     System.out.println(arr[i]);
-        // }
-        // arr[50000]=6;
-        // for (int i = 0; i < 100000; i++) {
-        //     System.out.println(arr[i]);
-        // }
-        // HitungWaktu.endTimeM();
-        // HitungWaktu.runTimeM();
+        
         // for (int i = 0; i < 10000; i++) {
         //     b.add(i);
         // }

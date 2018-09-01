@@ -1,33 +1,44 @@
 public class HitungWaktu{
-    private static long startTime;
-    private static long endTime;
-    private static long runTime;
-    public static void startTime() {
+    private long startTime;
+    private long endTime;
+    private long runTime;
+    private String namaProgram;
+
+    public HitungWaktu(){}
+
+    public HitungWaktu(String namaProgram) {
+        this.namaProgram = namaProgram;
+    }
+
+    public void startTime() {
         startTime = System.nanoTime();
         // System.out.println("startTime : "+startTime);
     }
-    public static void endTime() {
+    public void endTime() {
         endTime = System.nanoTime();
         runTime = endTime - startTime;
         // System.out.println("endTime   : " + endTime);
     }
-    public static void runTime() {
+    public void runTime() {
         System.out.println("runTime   : " + runTime);
     }
-    public static long getRunTime() {
+    public long getRunTime() {
         return runTime;
     }
 
-    public static void startTimeM() {
+    public void startTimeM() {
         startTime = System.currentTimeMillis();
         // System.out.println("startTime : "+startTime);
     }
-    public static void endTimeM() {
+    public void endTimeM() {
         endTime = System.currentTimeMillis();
         runTime = endTime - startTime;
         // System.out.println("endTime   : " + endTime);
     }
-    public static void runTimeM() {
-        System.out.println("runTime   : " + runTime);
+    public void runTimeM() {
+        if (this.namaProgram == null)
+            System.out.println("runTime   : " + runTime + "ms");
+        else
+            System.out.println(this.namaProgram + " runTime   : " + runTime + "ms");
     }
 }
