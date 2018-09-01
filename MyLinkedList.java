@@ -1,11 +1,19 @@
 public class MyLinkedList{// Berperan sebagai Head
     private Node next;
     
+    public void collapse() {
+        this.next = null;
+    }
+
     public boolean add(int ygDitambah) {
         if (this.next == null) {
             next = new Node(ygDitambah);
         } else {
-            next.add(ygDitambah);
+            Node pointer = next;
+            while (pointer.next != null) {
+                pointer = pointer.next;
+            }
+            pointer.next = new Node(ygDitambah);
         }
         return true;
     }
@@ -28,12 +36,17 @@ public class MyLinkedList{// Berperan sebagai Head
     }
     
     public void tampilkan() {
-        if (this.next == null) {
-            System.out.println("[]");
-        } else {
-            System.out.print("[");
-            next.tampilkan();
+        System.out.print("[");
+        Node pointer = next;
+        if (this.next != null) {
+            System.out.print(next.getIsiInt());
+            pointer = pointer.next;
         }
+        while (pointer != null) {
+            System.out.println(","+pointer.getIsiInt());
+            pointer = pointer.next;
+        }
+        System.out.println("]");
     }
 
     public int index(int indexPermintaan) {
@@ -99,24 +112,19 @@ class Node{
     private int isiInt;
     protected Node next;
 
+    public Node(int isiInt) {
+        this.isiInt = isiInt;
+    }
+
+    public int getIsiInt() {
+        return this.isiInt;
+    }
+
     public void popLama() {
         if (next.next == null)
             next = null;
         else
             next.popLama();
-    }
-
-    public Node(int isiInt) {
-        this.isiInt = isiInt;
-    }
-
-    public boolean add(int ygDitambah) {
-        if (this.next == null) {
-            next = new Node(ygDitambah);
-        } else {
-            next.add(ygDitambah);
-        }
-        return true;
     }
 
     public void add(int indexPermintaan, int ygDitambah, int indexNext) {
@@ -130,15 +138,6 @@ class Node{
             this.next = sisip;
         } else {
             next.add(indexPermintaan, ygDitambah, ++indexNext);
-        }
-    }
-
-    public void tampilkan() {
-        if (this.next == null) {
-            System.out.println(this.isiInt + "]");
-        } else {
-            System.out.print(this.isiInt + ",");
-            next.tampilkan();
         }
     }
 
