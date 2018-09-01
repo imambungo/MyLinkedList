@@ -7,7 +7,6 @@ class Main{
         HitungWaktu Arr2 = new HitungWaktu("Array print");
         int banyakIndex = 100000;
 
-
         MyLinkedList li = new MyLinkedList();
         List.startTimeM();
         for (int i = 0; i < banyakIndex; i++) {
@@ -75,26 +74,6 @@ class Main{
         // System.out.println(a.index(a.size()-1));
 
         // --------------------------------
-        
-        // for (int i = 0; i < 10000; i++) {
-        //     b.add(i);
-        // }
-        
-        // // hitung runtime popBaru()
-        // HitungWaktu.startTime();
-        // for (int i = 1; i < 10000; i++) {
-        //     a.popBaru();
-        // }
-        // A.endTime();
-        // A.runTime();
-        
-        // // hitung runtime popLama()
-        // HitungWaktu.startTime();
-        // for (int i = 1; i < 10000; i++) {
-        //     b.popLama();
-        // }
-        // B.endTime();
-        // B.runTime();
 
         // System.out.println((A.getRunTime()<B.getRunTime()?"popBaru()":"popLama()") + " lebih cepat.");
     }

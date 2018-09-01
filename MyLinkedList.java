@@ -5,6 +5,7 @@ public class MyLinkedList{// Berperan sebagai Head
         this.next = null;
     }
 
+    // TODO make shortcut to jump to the last node
     public boolean add(int ygDitambah) {
         if (this.next == null) {
             next = new Node(ygDitambah);
@@ -18,6 +19,7 @@ public class MyLinkedList{// Berperan sebagai Head
         return true;
     }
 
+    // TODO change to non-recursive method
     public void add(int indexPermintaan, int ygDitambah) {
         if (this.next == null || indexPermintaan < 0) {
             System.out.println("Error: Index out of bound gan :v");
@@ -49,6 +51,7 @@ public class MyLinkedList{// Berperan sebagai Head
         System.out.println("]");
     }
 
+    // TODO change to non-recursive method
     public int index(int indexPermintaan) {
         if (this.next == null || indexPermintaan < 0) {
             System.out.println("Error: Index out of bound gan :v");
@@ -61,6 +64,7 @@ public class MyLinkedList{// Berperan sebagai Head
         return next.index(indexPermintaan, 0);
     }
 
+    // TODO change to non-recursive method
     public int size() {
         if (next == null) {
             return 0;
@@ -68,7 +72,7 @@ public class MyLinkedList{// Berperan sebagai Head
         return next.size();
     }
 
-    public void popBaru() {
+    public void pop() {
         if (next != null){
             if (next.next == null) {
                 next = null;
@@ -82,14 +86,7 @@ public class MyLinkedList{// Berperan sebagai Head
         }
     }
 
-    public void popLama() {
-        if (next != null)
-            if (next.next == null)
-                next = null;
-            else
-                next.popLama();
-    }
-
+    // TODO change to non-recursive method
     public void hapus(int indexPermintaan) {
         if (this.next == null || indexPermintaan < 0) {
             System.out.println("Error: Index out of bound gan :v");
@@ -120,13 +117,7 @@ class Node{
         return this.isiInt;
     }
 
-    public void popLama() {
-        if (next.next == null)
-            next = null;
-        else
-            next.popLama();
-    }
-
+    // TODO change to non-recursive method
     public void add(int indexPermintaan, int ygDitambah, int indexNext) {
         if (next.next == null && indexPermintaan > indexNext) {
             System.out.println("Error: Index out of bound gan :v");
@@ -141,6 +132,7 @@ class Node{
         }
     }
 
+    // TODO change to non-recursive method
     public int index(int indexPermintaan, int indexIni) {
         if(indexPermintaan == indexIni) {
             return this.isiInt;
@@ -152,6 +144,7 @@ class Node{
         return next.index(indexPermintaan, ++indexIni);
     }
 
+    // TODO change to non-recursive method
     public int size() {
         if (next == null) {
             return 1;
@@ -159,6 +152,7 @@ class Node{
         return 1 + next.size();
     }
 
+    // TODO change to non-recursive method
     public void hapus(int indexPermintaan, int indexNext) {
         if (next.next == null && indexPermintaan > indexNext) {
             System.out.println("Error: Index out of bound gan :v");
