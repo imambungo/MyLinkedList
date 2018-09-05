@@ -1,17 +1,21 @@
 public class MyLinkedList{// Berperan sebagai Head
     private Node next;
     private Node tail;
+    private Node beforeTail;
     
-    public void collapse() {
+    public void clear() {
         this.next = null;
     }
 
     public boolean add(int ygDitambah) {
         if (this.next == null) {
-            next = new Node(ygDitambah);
+            next = new Node(ygDitambah, null);
+            next.setObject(next);
             tail = next;
         } else {
-            tail.next = new Node(ygDitambah);
+            tail.next = new Node(ygDitambah, tail.getObject());
+            tail.next.setObject(tail.next);
+            beforeTail = tail;
             tail = tail.next;
         }
         return true;
@@ -27,7 +31,7 @@ public class MyLinkedList{// Berperan sebagai Head
                 System.out.println("\t.hapus(" + indexPermintaan + ") -> Minimum index is 0");
             System.exit(0);
         } else if (indexPermintaan == 0) {
-            Node sisip = new Node(ygDitambah);
+            Node sisip = new Node(ygDitambah, null);
             sisip.next = this.next;
             this.next = sisip;
         } else {
@@ -84,6 +88,22 @@ public class MyLinkedList{// Berperan sebagai Head
         }
     }
 
+    public Node pop2() {
+        Node temp = null;
+        if (next != null){
+            if (next.next == null) {
+                temp = next;
+                next = null;
+            } else {
+                temp = tail;
+                beforeTail.next = null;
+                tail = beforeTail;
+                beforeTail = beforeTail.before;
+            }
+        }
+        return temp;
+    }
+
     // TODO change hapus(int) into non-recursive method
     public void hapus(int indexPermintaan) {
         if (this.next == null || indexPermintaan < 0) {
@@ -105,10 +125,21 @@ public class MyLinkedList{// Berperan sebagai Head
 }
 class Node{
     private int isiInt;
+    private Node object;
     protected Node next;
+    protected Node before;
 
-    public Node(int isiInt) {
+    public Node(int isiInt, Node before) {
         this.isiInt = isiInt;
+        this.before = before;
+    }
+
+    public void setObject(Node object) {
+        this.object = object;
+    }
+
+    public Node getObject() {
+        return this.object;
     }
 
     public int getIsiInt() {
@@ -122,7 +153,7 @@ class Node{
             System.out.println("\t.hapus(" + indexPermintaan + ") -> last index: " + indexNext);
             System.exit(0);
         } else if (indexPermintaan == indexNext) {
-            Node sisip = new Node(ygDitambah);
+            Node sisip = new Node(ygDitambah, before);
             sisip.next = this.next;
             this.next = sisip;
         } else {

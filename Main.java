@@ -1,59 +1,13 @@
 class Main{
     public static void main(String[] args) {
 
-        HitungWaktu List = new HitungWaktu("List assignment");
-        HitungWaktu Arr = new HitungWaktu("Array assignment");
-        HitungWaktu List2 = new HitungWaktu("List print");
-        HitungWaktu Arr2 = new HitungWaktu("Array print");
-        int banyakIndex = 100000;
-
         MyLinkedList li = new MyLinkedList();
-        List.startTimeM();
-        for (int i = 0; i < banyakIndex; i++) {
+        for (int i = 0; i < 10; i++)
             li.add(i);
-        }
-        List.endTimeM();
-        List2.startTime();
         li.tampilkan();
-        List2.endTime();
-
-        int[] arr = new int[banyakIndex];
-        Arr.startTimeM();
-        for (int i = 0; i < banyakIndex; i++) {
-            arr[i] = i;
-        }
-        Arr.endTimeM();
-        Arr2.startTime();
-        for (int i = 0; i < banyakIndex; i++) {
-            System.out.println(arr[i]);
-        }
-        Arr2.endTime();
-        Arr.runTimeM();
-        Arr2.runTimeM();
-        List.runTimeM();
-        List2.runTimeM();
-
-
-        // MyLinkedList b = new MyLinkedList();
-        // a.tampilkan();
-        // a.add(100);
-        // a.tampilkan();
-
-        // HitungWaktu.startTime();
-        // for (int i = 0; i < 5; i++) {
-        //     a.add(i);
-        // }
-        // HitungWaktu.endTime();
-        // HitungWaktu.runTime();
-        // a.tampilkan();
-        
-        // HitungWaktu.startTime();
-        // for (int i = 0; i < 5; i++) {
-        //     a.add2(i);
-        // }
-        // HitungWaktu.endTime();
-        // a.tampilkan();
-        // HitungWaktu.runTime();
+        for (int i = 0; i < 11; i++)
+            li.pop2();
+        li.tampilkan();
 
         // a.tampilkan();
         // a.add(6);
