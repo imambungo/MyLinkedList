@@ -20,7 +20,10 @@ public class HitungWaktu{
         // System.out.println("endTime   : " + endTime);
     }
     public void runTime() {
-        System.out.println("runTime   : " + runTime);
+        if (this.namaProgram == null)
+            System.out.println("runTime\t\t: " + runTime + " ns");
+        else
+            System.out.println(this.namaProgram + "\nrunTime\t\t: " + runTime + " ns\n");
     }
     public long getRunTime() {
         return runTime;
