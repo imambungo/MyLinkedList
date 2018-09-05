@@ -5,6 +5,7 @@ public class MyLinkedList{// Berperan sebagai Head
     
     public void clear() {
         this.next = null;
+        this.size = 0;
     }
 
     public boolean add(int ygDitambah) {
@@ -33,8 +34,11 @@ public class MyLinkedList{// Berperan sebagai Head
 
     public Node removeFirst() {
         Node temp = next;
-        next = next.next;
-        temp.next = null;// apakah harus pakai ini?
+        if (this.next != null) {
+            next = next.next;
+            temp.next = null;// apakah harus pakai ini?
+            this.size--;
+        }
         return temp;
     }
 
@@ -84,7 +88,6 @@ public class MyLinkedList{// Berperan sebagai Head
         return next.get(indexPermintaan, 0);
     }
 
-    // TODO change size() into non-recursive method
     public int size() {
         return this.size;
     }
@@ -126,8 +129,7 @@ public class MyLinkedList{// Berperan sebagai Head
     }
 }
 class Node{
-    // private int isiInt;
-    int isiInt;
+    private int isiInt;
     protected Node next;
     protected Node previous;
 
@@ -165,14 +167,6 @@ class Node{
             System.exit(0);
         }
         return next.get(indexPermintaan, ++indexIni);
-    }
-
-    // TODO change into non-recursive method
-    public int size() {
-        if (next == null) {
-            return 1;
-        }
-        return 1 + next.size();
     }
 
     // TODO change into non-recursive method
