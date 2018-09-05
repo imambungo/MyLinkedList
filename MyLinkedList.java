@@ -11,17 +11,21 @@ public class MyLinkedList{// Berperan sebagai Head
     public boolean add(int ygDitambah) {
         if (this.next == null) {
             next = new Node(ygDitambah, null);
-            next.setObject(next);
             tail = next;
         } else {
-            tail.next = new Node(ygDitambah, tail.getObject());
-            tail.next.setObject(tail.next);
-            // beforeTail = tail;
+            tail.next = new Node(ygDitambah, tail);
             tail = tail.next;
         }
         this.size++;
         return true;
     }
+
+    // public void addFirst(int ygDitambah) {
+    //     if (this.next == null) {
+    //         next = new Node(ygDitambah, null);
+    //         tail = next;
+    //     }
+    // }
 
     // TODO change add(int,int) into non-recursive method
     public void add(int indexPermintaan, int ygDitambah) {
@@ -113,21 +117,12 @@ public class MyLinkedList{// Berperan sebagai Head
 class Node{
     // private int isiInt;
     int isiInt;
-    private Node object;
     protected Node next;
     protected Node before;
 
     public Node(int isiInt, Node before) {
         this.isiInt = isiInt;
         this.before = before;
-    }
-
-    public void setObject(Node object) {
-        this.object = object;
-    }
-
-    public Node getObject() {
-        return this.object;
     }
 
     public int getIsiInt() {
