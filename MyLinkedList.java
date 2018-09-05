@@ -20,12 +20,17 @@ public class MyLinkedList{// Berperan sebagai Head
         return true;
     }
 
-    // public void addFirst(int ygDitambah) {
-    //     if (this.next == null) {
-    //         next = new Node(ygDitambah, null);
-    //         tail = next;
-    //     }
-    // }
+    public void addFirst(int ygDitambah) {
+        if (this.next == null) {
+            next = new Node(ygDitambah, null);
+            tail = next;
+        } else {
+            Node sisip = new Node(ygDitambah, null);
+            sisip.next = this.next;
+            this.next = sisip;
+        }
+        this.size++;
+    }
 
     // TODO change add(int,int) into non-recursive method
     public void add(int indexPermintaan, int ygDitambah) {
