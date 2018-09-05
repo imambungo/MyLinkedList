@@ -1,7 +1,7 @@
 public class MyLinkedList{// Berperan sebagai Head
     private Node next;
     private Node tail;
-    private Node beforeTail;
+    // private Node beforeTail;
     
     public void clear() {
         this.next = null;
@@ -15,7 +15,7 @@ public class MyLinkedList{// Berperan sebagai Head
         } else {
             tail.next = new Node(ygDitambah, tail.getObject());
             tail.next.setObject(tail.next);
-            beforeTail = tail;
+            // beforeTail = tail;
             tail = tail.next;
         }
         return true;
@@ -74,21 +74,7 @@ public class MyLinkedList{// Berperan sebagai Head
         return next.size();
     }
 
-    public void pop() {
-        if (next != null){
-            if (next.next == null) {
-                next = null;
-            } else {
-                Node pointer = next;
-                while (pointer.next.next != null) {
-                    pointer = pointer.next;
-                }
-                pointer.next = null;
-            }
-        }
-    }
-
-    public Node pop2() {
+    public Node pop() {
         Node temp = null;
         if (next != null){
             if (next.next == null) {
@@ -96,9 +82,8 @@ public class MyLinkedList{// Berperan sebagai Head
                 next = null;
             } else {
                 temp = tail;
-                beforeTail.next = null;
-                tail = beforeTail;
-                beforeTail = beforeTail.before;
+                tail.before.next = null;
+                tail = tail.before;
             }
         }
         return temp;
@@ -124,7 +109,8 @@ public class MyLinkedList{// Berperan sebagai Head
     }
 }
 class Node{
-    private int isiInt;
+    // private int isiInt;
+    int isiInt;
     private Node object;
     protected Node next;
     protected Node before;
@@ -132,6 +118,13 @@ class Node{
     public Node(int isiInt, Node before) {
         this.isiInt = isiInt;
         this.before = before;
+    }
+
+    private void copy(Node object) {
+        this.isiInt = object.isiInt;
+        this.object = object.object;
+        this.next = object.next;
+        this.before = object.before;
     }
 
     public void setObject(Node object) {
