@@ -2,7 +2,6 @@ public class MyLinkedList{// Berperan sebagai Head
     private Node next;
     private Node tail;
     private int size;
-    // private Node beforeTail;
     
     public void clear() {
         this.next = null;
@@ -30,6 +29,13 @@ public class MyLinkedList{// Berperan sebagai Head
             this.next = sisip;
         }
         this.size++;
+    }
+
+    public Node removeFirst() {
+        Node temp = next;
+        next = next.next;
+        temp.next = null;
+        return temp;
     }
 
     // TODO change add(int,int) into non-recursive method
@@ -83,7 +89,7 @@ public class MyLinkedList{// Berperan sebagai Head
         return this.size;
     }
 
-    public Node pop() {
+    public Node removeLast() {
         Node temp = null;
         if (next != null){
             if (next.next == null) {
@@ -91,8 +97,8 @@ public class MyLinkedList{// Berperan sebagai Head
                 next = null;
             } else {
                 temp = tail;
-                tail.before.next = null;
-                tail = tail.before;
+                tail.previous.next = null;
+                tail = tail.previous;
             }
         }
         this.size--;
@@ -123,11 +129,11 @@ class Node{
     // private int isiInt;
     int isiInt;
     protected Node next;
-    protected Node before;
+    protected Node previous;
 
-    public Node(int isiInt, Node before) {
+    public Node(int isiInt, Node previous) {
         this.isiInt = isiInt;
-        this.before = before;
+        this.previous = previous;
     }
 
     public int getIsiInt() {
@@ -141,7 +147,7 @@ class Node{
             System.out.println("\t.hapus(" + indexPermintaan + ") -> last index: " + indexNext);
             System.exit(0);
         } else if (indexPermintaan == indexNext) {
-            Node sisip = new Node(ygDitambah, before);
+            Node sisip = new Node(ygDitambah, previous);
             sisip.next = this.next;
             this.next = sisip;
         } else {

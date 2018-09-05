@@ -5,8 +5,8 @@ class Main{
         for (int i = 0; i < 10; i++)
             li.add(i);
         li.tampilkan();
-        for (int i = 0; i < 10; i++)
-            li.pop();
+        for (int i = 0; i < 5; i++)
+            li.removeFirst();
         li.tampilkan();
 
         // a.tampilkan();
