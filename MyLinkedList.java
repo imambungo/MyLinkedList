@@ -1,6 +1,7 @@
 public class MyLinkedList{// Berperan sebagai Head
     private Node next;
     private Node tail;
+    private int size;
     // private Node beforeTail;
     
     public void clear() {
@@ -18,6 +19,7 @@ public class MyLinkedList{// Berperan sebagai Head
             // beforeTail = tail;
             tail = tail.next;
         }
+        this.size++;
         return true;
     }
 
@@ -37,6 +39,7 @@ public class MyLinkedList{// Berperan sebagai Head
         } else {
             next.add(indexPermintaan, ygDitambah, 1);
         }
+        this.size++;
     }
     
     public void tampilkan() {
@@ -68,10 +71,7 @@ public class MyLinkedList{// Berperan sebagai Head
 
     // TODO change size() into non-recursive method
     public int size() {
-        if (next == null) {
-            return 0;
-        }
-        return next.size();
+        return this.size;
     }
 
     public Node pop() {
@@ -86,6 +86,7 @@ public class MyLinkedList{// Berperan sebagai Head
                 tail = tail.before;
             }
         }
+        this.size--;
         return temp;
     }
 
@@ -106,6 +107,7 @@ public class MyLinkedList{// Berperan sebagai Head
         } else {
             next.hapus(indexPermintaan, 1);
         }
+        this.size--;
     }
 }
 class Node{
@@ -118,13 +120,6 @@ class Node{
     public Node(int isiInt, Node before) {
         this.isiInt = isiInt;
         this.before = before;
-    }
-
-    private void copy(Node object) {
-        this.isiInt = object.isiInt;
-        this.object = object.object;
-        this.next = object.next;
-        this.before = object.before;
     }
 
     public void setObject(Node object) {
