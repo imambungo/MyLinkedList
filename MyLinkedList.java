@@ -42,21 +42,27 @@ public class MyLinkedList{// Berperan sebagai Head
         return temp;
     }
 
-    // TODO change add(int,int) into non-recursive method
-    public void add(int indexPermintaan, int ygDitambah) {
-        if (this.next == null || indexPermintaan < 0) {
+    public void add(int index, int nilai) {
+        if (index < 0 || index > size()) {
             System.out.println("Error: Index out of bound gan :v");
-            if (this.next == null)
-                System.out.println("\t.hapus(" + indexPermintaan + ") -> LinkedList is empty");
-            if (indexPermintaan < 0)
-                System.out.println("\t.hapus(" + indexPermintaan + ") -> Minimum index is 0");
+            if (index > size())
+                System.out.println("\t.hapus(" + index + ") -> Maximum index is " + size());
+            if (index < 0)
+                System.out.println("\t.hapus(" + index + ") -> Minimum index is 0");
             System.exit(0);
-        } else if (indexPermintaan == 0) {
-            Node sisip = new Node(ygDitambah, null);
-            sisip.next = this.next;
-            this.next = sisip;
+        } else if (index == 0) {
+            addFirst(nilai);
         } else {
-            next.add(indexPermintaan, ygDitambah, 1);
+            Node nodeBaru;
+            Node pointer = next;
+            while (index > 1) {
+                pointer = pointer.next;
+                index--;
+            }
+            nodeBaru = new Node(nilai,pointer.previous);
+            pointer.previous = nodeBaru;
+            nodeBaru.next = pointer.next;
+            pointer.next = nodeBaru;
         }
         this.size++;
     }
@@ -140,21 +146,6 @@ class Node{
 
     public int getIsiInt() {
         return this.isiInt;
-    }
-
-    // TODO change into non-recursive method
-    public void add(int indexPermintaan, int ygDitambah, int indexNext) {
-        if (next.next == null && indexPermintaan > indexNext) {
-            System.out.println("Error: Index out of bound gan :v");
-            System.out.println("\t.hapus(" + indexPermintaan + ") -> last index: " + indexNext);
-            System.exit(0);
-        } else if (indexPermintaan == indexNext) {
-            Node sisip = new Node(ygDitambah, previous);
-            sisip.next = this.next;
-            this.next = sisip;
-        } else {
-            next.add(indexPermintaan, ygDitambah, ++indexNext);
-        }
     }
 
     // TODO change into non-recursive method

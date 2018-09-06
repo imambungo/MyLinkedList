@@ -1,13 +1,16 @@
 class Main{
     public static void main(String[] args) {
 
-        MyLinkedList li = new MyLinkedList();
-        for (int i = 0; i < 10; i++)
-            li.add(i);
-        li.tampilkan();
-        for (int i = 0; i < 11; i++)
-            li.removeFirst();
-        li.tampilkan();
+        MyLinkedList li2 = new MyLinkedList();
+
+        for (int i = 0; i < 100000; i++) {
+            li2.add(i);
+        }
+        li2.add(100000, 999);
+        for (int i = 0; i < 100000; i++) {
+            li2.removeLast();
+        }
+        li2.tampilkan();
 
         // a.tampilkan();
         // a.add(6);
