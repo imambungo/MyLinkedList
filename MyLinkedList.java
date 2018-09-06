@@ -79,6 +79,8 @@ public class MyLinkedList{// Berperan sebagai Head
             System.exit(0);
         } else if (index == 0) {
             addFirst(nilai);
+        } else if (index == size()) {
+            add(nilai);
         } else {
             Node nodeBaru;
             Node pointer = next;
@@ -92,9 +94,6 @@ public class MyLinkedList{// Berperan sebagai Head
             pointer.previous = nodeBaru;
             nodeBaru.next = pointer;
         }
-        // if (index == size()) {
-        //     this.tail = 
-        // }
         this.size++;
         this.sum += nilai;
     }
