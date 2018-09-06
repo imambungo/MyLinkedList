@@ -7,10 +7,12 @@ class Main{
             li2.add(i);
         }
         li2.add(100000, 999);
-        for (int i = 0; i < 100000; i++) {
+        for (int i = 0; i < 99998; i++) {
             li2.removeLast();
         }
         li2.tampilkan();
+        System.out.println("sum: "+li2.sum());
+        System.out.println(li2.contains(2));
 
         // a.tampilkan();
         // a.add(6);

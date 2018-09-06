@@ -2,10 +2,34 @@ public class MyLinkedList{// Berperan sebagai Head
     private Node next;
     private Node tail;
     private int size;
+    private int sum = 0;
     
     public void clear() {
         this.next = null;
         this.size = 0;
+    }
+
+    public int sum() {
+        return this.sum;
+    }
+
+    public int getFirst() {
+        return this.next.getIsiInt();
+    }
+
+    public int getLast() {
+        return this.tail.getIsiInt();
+    }
+
+    public boolean contains(int nilai) {
+        Node pointer = this.next;
+        while (pointer != null) {
+            if (pointer.getIsiInt() == nilai) {
+                return true;
+            }
+            pointer = pointer.next;
+        }
+        return false;
     }
 
     public boolean add(int ygDitambah) {
@@ -17,6 +41,7 @@ public class MyLinkedList{// Berperan sebagai Head
             tail = tail.next;
         }
         this.size++;
+        this.sum += ygDitambah;
         return true;
     }
 
@@ -30,12 +55,14 @@ public class MyLinkedList{// Berperan sebagai Head
             this.next = sisip;
         }
         this.size++;
+        this.sum += ygDitambah;
     }
 
     public Node removeFirst() {
         Node temp = next;
         if (this.next != null) {
             next = next.next;
+            this.sum -= temp.next.getIsiInt();
             temp.next = null;// apakah harus pakai ini?
             this.size--;
         }
@@ -65,6 +92,7 @@ public class MyLinkedList{// Berperan sebagai Head
             pointer.next = nodeBaru;
         }
         this.size++;
+        this.sum += nilai;
     }
     
     public void tampilkan() {
@@ -103,14 +131,16 @@ public class MyLinkedList{// Berperan sebagai Head
         if (next != null){
             if (next.next == null) {
                 temp = next;
+                this.sum -= next.getIsiInt();
                 next = null;
             } else {
                 temp = tail;
+                this.sum -= temp.getIsiInt();
                 tail.previous.next = null;
                 tail = tail.previous;
             }
+            this.size--;
         }
-        this.size--;
         return temp;
     }
 
