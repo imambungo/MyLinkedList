@@ -7,8 +7,12 @@ class Main{
             li2.add(i);
         }
         li2.tampilkan();
-        li2.add(5, 999);
+        System.out.println(li2.sum());
+        System.out.println(li2.size());
+        li2.remove(3);
         li2.tampilkan();
+        System.out.println(li2.sum());
+        System.out.println(li2.size());
         // System.out.println("sum: "+li2.sum());
         // System.out.println(li2.contains(2));
 
