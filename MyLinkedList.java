@@ -73,9 +73,9 @@ public class MyLinkedList{// Berperan sebagai Head
         if (index < 0 || index > size()) {
             System.out.println("Error: Index out of bound gan :v");
             if (index > size())
-                System.out.println("\t.hapus(" + index + ") -> Maximum index is " + size());
+                System.out.println("\tvoid add(" + index + "," + nilai + ") -> Maximum index is " + (size()-1));
             if (index < 0)
-                System.out.println("\t.hapus(" + index + ") -> Minimum index is 0");
+                System.out.println("\tvoid add(" + index + "," + nilai + ") -> Minimum index is 0");
             System.exit(0);
         } else if (index == 0) {
             addFirst(nilai);
@@ -109,17 +109,23 @@ public class MyLinkedList{// Berperan sebagai Head
         System.out.println("]");
     }
 
-    // TODO change index(int) into non-recursive method
-    public int get(int indexPermintaan) {
-        if (this.next == null || indexPermintaan < 0) {
+    public int get(int index) {
+        if (index < 0 || index >= size()) {
             System.out.println("Error: Index out of bound gan :v");
-            if (this.next == null)
-                System.out.println("\t.hapus(" + indexPermintaan + ") -> LinkedList is empty");
-            if (indexPermintaan < 0)
-                System.out.println("\t.hapus(" + indexPermintaan + ") -> Minimum index is 0");
+            if (index >= size())
+                System.out.println("\tint get(" + index + ") -> Maximum index is " + (size()-1));
+            if (index < 0)
+                System.out.println("\tint get(" + index + ") -> Minimum index is 0");
             System.exit(0);
+        } else {
+            Node pointer = next;
+            while (index > 0) {
+                pointer = pointer.next;
+                index--;
+            }
+            return pointer.getIsiInt();
         }
-        return next.get(indexPermintaan, 0);
+        return -1;
     }
 
     public int size() {
@@ -149,9 +155,9 @@ public class MyLinkedList{// Berperan sebagai Head
         if (this.next == null || indexPermintaan < 0) {
             System.out.println("Error: Index out of bound gan :v");
             if (this.next == null)
-                System.out.println("\t.hapus(" + indexPermintaan + ") -> LinkedList is empty");
+                System.out.println("\tvoid remove(" + indexPermintaan + ") -> LinkedList is empty");
             if (indexPermintaan < 0)
-                System.out.println("\t.hapus(" + indexPermintaan + ") -> Minimum index is 0");
+                System.out.println("\tvoid remove(" + indexPermintaan + ") -> Minimum index is 0");
             System.exit(0);
         } else if (indexPermintaan == 0) {
             if (next.next == null)
@@ -176,18 +182,6 @@ class Node{
 
     public int getIsiInt() {
         return this.isiInt;
-    }
-
-    // TODO change into non-recursive method
-    public int get(int indexPermintaan, int indexIni) {
-        if(indexPermintaan == indexIni) {
-            return this.isiInt;
-        }else if (this.next == null) {
-            System.out.println("Error: Index out of bound gan :v");
-            System.out.println("\t.index(" + indexPermintaan + ") -> last index: " + indexIni);
-            System.exit(0);
-        }
-        return next.get(indexPermintaan, ++indexIni);
     }
 
     // TODO change into non-recursive method
