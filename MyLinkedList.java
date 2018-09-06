@@ -62,7 +62,7 @@ public class MyLinkedList{// Berperan sebagai Head
         Node temp = next;
         if (this.next != null) {
             next = next.next;
-            this.sum -= temp.next.getIsiInt();
+            this.sum -= temp.getIsiInt();
             temp.next = null;// apakah harus pakai ini?
             this.size--;
         }
