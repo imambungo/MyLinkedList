@@ -82,15 +82,19 @@ public class MyLinkedList{// Berperan sebagai Head
         } else {
             Node nodeBaru;
             Node pointer = next;
-            while (index > 1) {
+            int i = index;
+            while (i > 0) {
                 pointer = pointer.next;
-                index--;
+                i--;
             }
             nodeBaru = new Node(nilai,pointer.previous);
+            pointer.previous.next = nodeBaru;
             pointer.previous = nodeBaru;
-            nodeBaru.next = pointer.next;
-            pointer.next = nodeBaru;
+            nodeBaru.next = pointer;
         }
+        // if (index == size()) {
+        //     this.tail = 
+        // }
         this.size++;
         this.sum += nilai;
     }
