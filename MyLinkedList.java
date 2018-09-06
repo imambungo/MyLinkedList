@@ -84,10 +84,9 @@ public class MyLinkedList{// Berperan sebagai Head
         } else {
             Node nodeBaru;
             Node pointer = next;
-            int i = index;
-            while (i > 0) {
+            while (index > 0) {
                 pointer = pointer.next;
-                i--;
+                index--;
             }
             nodeBaru = new Node(nilai,pointer.previous);
             pointer.previous.next = nodeBaru;
@@ -153,24 +152,32 @@ public class MyLinkedList{// Berperan sebagai Head
         return temp;
     }
 
-    // TODO change hapus(int) into non-recursive method
-    public void remove(int indexPermintaan) {
-        if (this.next == null || indexPermintaan < 0) {
+    public Node remove(int index) {
+        Node temp = null;
+        if (index < 0 || index >= size()) {
             System.out.println("Error: Index out of bound gan :v");
-            if (this.next == null)
-                System.out.println("\tvoid remove(" + indexPermintaan + ") -> LinkedList is empty");
-            if (indexPermintaan < 0)
-                System.out.println("\tvoid remove(" + indexPermintaan + ") -> Minimum index is 0");
+            if (index >= size())
+                System.out.println("\tvoid remove(" + index + ") -> Maximum index is " + (size() - 1));
+            if (index < 0)
+                System.out.println("\tvoid remove(" + index + ") -> Minimum index is 0");
             System.exit(0);
-        } else if (indexPermintaan == 0) {
-            if (next.next == null)
-                this.next = null;
-            else
-                this.next = next.next;
+        } else if (index == 0) {
+            temp = removeFirst();
+        } else if (index == size()-1) {
+            temp = removeLast();
         } else {
-            next.remove(indexPermintaan, 1);
+            Node pointer = next;
+            while (index > 1) {
+                pointer = pointer.next;
+                index--;
+            }
+            temp = pointer.next;//!
+            pointer.next.next.previous = pointer;
+            pointer.next = pointer.next.next;
+            this.sum -= temp.getIsiInt();
+            this.size--;
         }
-        this.size--;
+        return temp;
     }
 }
 class Node{
@@ -185,21 +192,5 @@ class Node{
 
     public int getIsiInt() {
         return this.isiInt;
-    }
-
-    // TODO change into non-recursive method
-    public void remove(int indexPermintaan, int indexNext) {
-        if (next.next == null && indexPermintaan > indexNext) {
-            System.out.println("Error: Index out of bound gan :v");
-            System.out.println("\t.hapus("+indexPermintaan+") -> last index: "+indexNext);
-            System.exit(0);
-        } else if (indexPermintaan == indexNext) {
-            if (next.next == null)
-                this.next = null;
-            else
-                this.next = next.next;
-        } else {
-            next.remove(indexPermintaan, ++indexNext);
-        }
     }
 }

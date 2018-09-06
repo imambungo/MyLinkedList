@@ -15,6 +15,6 @@ Membuat LinkedList sendiri.
 - [x] Node remove(int index)
 - [x] int get(int index)
 - [x] int size()
-- [ ] int sum()
+- [x] int sum()
 - [x] int getFirst()
 - [x] int getLast()
