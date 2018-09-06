@@ -73,7 +73,7 @@ public class MyLinkedList{// Berperan sebagai Head
         if (index < 0 || index > size()) {
             System.out.println("Error: Index out of bound gan :v");
             if (index > size())
-                System.out.println("\tvoid add(" + index + "," + nilai + ") -> Maximum index is " + (size()-1));
+                System.out.println("\tvoid add(" + index + "," + nilai + ") -> Max index allowed: " + (size()-1));
             if (index < 0)
                 System.out.println("\tvoid add(" + index + "," + nilai + ") -> Minimum index is 0");
             System.exit(0);
@@ -93,9 +93,9 @@ public class MyLinkedList{// Berperan sebagai Head
             pointer.previous.next = nodeBaru;
             pointer.previous = nodeBaru;
             nodeBaru.next = pointer;
+            this.size++;
+            this.sum += nilai;
         }
-        this.size++;
-        this.sum += nilai;
     }
     
     public void tampilkan() {
