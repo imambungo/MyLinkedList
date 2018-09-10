@@ -88,16 +88,16 @@ public class MyLinkedList{// Berperan sebagai Head
                 pointer = pointer.next;
                 index--;
             }
-            nodeBaru = new Node(nilai,pointer.previous);
-            pointer.previous.next = nodeBaru;
-            pointer.previous = nodeBaru;
+            nodeBaru = new Node(nilai,pointer.prev);
+            pointer.prev.next = nodeBaru;
+            pointer.prev = nodeBaru;
             nodeBaru.next = pointer;
             this.size++;
             this.sum += nilai;
         }
     }
     
-    public void tampilkan() {
+    protected void tampilkan() {
         System.out.print("[");
         Node pointer = next;
         if (this.next != null) {
@@ -144,8 +144,8 @@ public class MyLinkedList{// Berperan sebagai Head
             } else {
                 temp = tail;
                 this.sum -= temp.getIsiInt();
-                tail.previous.next = null;
-                tail = tail.previous;
+                tail.prev.next = null;
+                tail = tail.prev;
             }
             this.size--;
         }
@@ -172,7 +172,7 @@ public class MyLinkedList{// Berperan sebagai Head
                 index--;
             }
             temp = pointer.next;//!
-            pointer.next.next.previous = pointer;
+            pointer.next.next.prev = pointer;
             pointer.next = pointer.next.next;
             this.sum -= temp.getIsiInt();
             this.size--;
@@ -183,11 +183,11 @@ public class MyLinkedList{// Berperan sebagai Head
 class Node{
     private int isiInt;
     protected Node next;
-    protected Node previous;
+    protected Node prev;
 
-    public Node(int isiInt, Node previous) {
+    public Node(int isiInt, Node prev) {
         this.isiInt = isiInt;
-        this.previous = previous;
+        this.prev = prev;
     }
 
     public int getIsiInt() {
